@@ -2,7 +2,7 @@ const Header = () => {
    
     return (
       <header >
-<h1>Groceries List</h1>
+<h1>Oluchi's To-Do List</h1>
       </header>
     )
   }
