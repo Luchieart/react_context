@@ -1,40 +1,46 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
 
 const Content = () => {
-    const handleNameChange=()=>{
-     const names=['Oluchi','Bola','Esther','Jummy'] ;
-     const int=Math.floor(Math.random()*3)
-     return names[int];  
-    }
-
-const handleClick=()=>{
-    console.log('You clicked it')
-}
-const handleClick2=(name)=>{
-    console.log(`${name} was clicked`)
-}
-const handleClick3=(e)=>{
-    console.log(e)
-}
-
+    const[items,setItems]=useState([
+        {
+            id:2,
+            checked:true,
+            item:'Rice and chicken'
+        },
+        {
+            id:3,
+            checked:false,
+            item:'Item 2'
+        },
+        {
+            id:4,
+            checked:false,
+            item:'Item 3'
+        }
+    ]);
+   
+   
 
   return (
     
   <main>
-        
-        <p onDoubleClick={handleClick}>
-         Hello {handleNameChange()}!
-        </p>
-        <button onClick={handleClick}>Click it</button>
-        <button onClick={()=>handleClick2('Oluchi')}>Click it</button>
-        <button onClick={(e)=>handleClick3(e)}>Click it</button>
-      
-
-  
-  
-
+    <ul>
+        {items.map((item)=>(
+            <li className='item' key={item.id}>
+<input
+type='checkbox'
+checked={item.checked}
+/>
+<label>{item.item}</label>
+<button>Delete</button>
+            </li>
+        ))}
+    </ul>
+   
   </main>
+
   )
 }
 
-export default Content
+export default Content;
